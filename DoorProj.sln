@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoorProj", "DoorProj\DoorPr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelParserLibrary", "ExcelParserLibrary\ExcelParserLibrary.csproj", "{2F144F93-AE53-466F-869E-9EEFAE4C1A25}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{40942A2C-B673-4EE5-8C57-FBE728FF5469}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{2F144F93-AE53-466F-869E-9EEFAE4C1A25}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F144F93-AE53-466F-869E-9EEFAE4C1A25}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F144F93-AE53-466F-869E-9EEFAE4C1A25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40942A2C-B673-4EE5-8C57-FBE728FF5469}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40942A2C-B673-4EE5-8C57-FBE728FF5469}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40942A2C-B673-4EE5-8C57-FBE728FF5469}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40942A2C-B673-4EE5-8C57-FBE728FF5469}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
