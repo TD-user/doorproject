@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2019
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoorProj", "DoorProj\DoorProj.csproj", "{D81BFC82-D7ED-45FB-986D-D2E881B463E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelParserLibrary", "ExcelParserLibrary\ExcelParserLibrary.csproj", "{2F144F93-AE53-466F-869E-9EEFAE4C1A25}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D81BFC82-D7ED-45FB-986D-D2E881B463E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D81BFC82-D7ED-45FB-986D-D2E881B463E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D81BFC82-D7ED-45FB-986D-D2E881B463E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D81BFC82-D7ED-45FB-986D-D2E881B463E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F144F93-AE53-466F-869E-9EEFAE4C1A25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F144F93-AE53-466F-869E-9EEFAE4C1A25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F144F93-AE53-466F-869E-9EEFAE4C1A25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F144F93-AE53-466F-869E-9EEFAE4C1A25}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F6A5EFB7-11B5-4EAF-BC3D-57D927172356}
+	EndGlobalSection
+EndGlobal
