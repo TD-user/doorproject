@@ -52,6 +52,7 @@ namespace DoorProj
                         MessageBox.Show("Не вдалось завантажити технологічну карту", "Помилка");
                     }
                     LoadingAnimation.Dispatcher.Invoke(() => { LoadingAnimation.Visibility = Visibility.Collapsed; });
+                    ExcelParser.KillProccess();
                 })).Start();
             }
         }
