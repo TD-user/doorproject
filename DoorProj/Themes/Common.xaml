@@ -2,9 +2,17 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:DoorProj.Themes">
     
-    <Style
-        TargetType="Menu">
+    <Style TargetType="Menu">
         <Setter Property="FontSize" Value="14"/>
+    </Style>
+
+    <Style TargetType="GridSplitter">
+        <Setter Property="Background" Value="LightGray"/>
+    </Style>
+    
+    <Style TargetType="DataGrid">
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="BorderThickness" Value="0"/>
     </Style>
     
 </ResourceDictionary>

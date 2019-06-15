@@ -22,5 +22,7 @@ namespace Entities
         public string DoorStep { get; set; } //поріг
         public string Note { get; set; } //примітка
         public string OrderNumber { get; set; } //номер замовлення
+        public Status Status { get; set; } = Status.Preparation;
+
     }
 }

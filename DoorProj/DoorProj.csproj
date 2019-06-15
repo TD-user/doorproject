@@ -98,5 +98,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Entities\Entities.csproj">
+      <Project>{40942a2c-b673-4ee5-8c57-fbe728ff5469}</Project>
+      <Name>Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExcelParserLibrary\ExcelParserLibrary.csproj">
+      <Project>{2f144f93-ae53-466f-869e-9eefae4c1a25}</Project>
+      <Name>ExcelParserLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

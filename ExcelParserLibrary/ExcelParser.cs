@@ -10,7 +10,7 @@ using System.Diagnostics;
 
 namespace ExcelParserLibrary
 {
-    class ExcelParser
+    public class ExcelParser
     {
         public string FilePath { get; set; }
 
