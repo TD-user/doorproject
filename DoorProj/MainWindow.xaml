@@ -4,9 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DoorProj"
+        xmlns:helpers="clr-namespace:DoorProj.Helpers"
         mc:Ignorable="d"
         WindowState="Maximized"
-        Title="DoorCAM" Height="450" Width="800">
+        Title="DoorCAM" Height="450" Width="800"
+        Closing="Window_Closing">
+    <Window.Resources>
+        <helpers:TableRowConverter x:Key="tableRowConverter"/>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -37,11 +42,46 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
-                <DataGrid 
+                <Grid>
+                    <DataGrid 
+                    RenderOptions.EdgeMode="Aliased" 
+                    UseLayoutRounding="True"
                     x:Name="Table">
-                    
-                </DataGrid>
-
+                        <DataGrid.RowStyle>
+                            <Style TargetType="DataGridRow">
+                                <Setter Property="Background">
+                                    <Setter.Value>
+                                        <Binding Path="Status" Converter="{StaticResource tableRowConverter}"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </DataGrid.RowStyle>
+                    </DataGrid>
+                    <Image 
+                        x:Name="LoadingAnimation"
+                        Source="Images/loading.png" 
+                        Height="50">
+                        <Image.RenderTransform>
+                            <RotateTransform 
+                                x:Name="rotate"
+                                CenterX="25"
+                                CenterY="25"/>
+                        </Image.RenderTransform>
+                        <Image.Triggers>
+                            <EventTrigger RoutedEvent="Loaded">
+                                <BeginStoryboard>
+                                    <Storyboard 
+                                        RepeatBehavior="Forever">
+                                        <DoubleAnimation 
+                                            Storyboard.TargetName="rotate"
+                                            Storyboard.TargetProperty="Angle"
+                                            By="360" Duration="0:0:1.5"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Image.Triggers>
+                    </Image>
+                </Grid>
                 <GridSplitter 
                     Grid.Row="1" 
                     Height="3"

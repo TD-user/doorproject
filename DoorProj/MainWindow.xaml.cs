@@ -29,6 +29,7 @@ namespace DoorProj
         public MainWindow()
         {
             InitializeComponent();
+            LoadingAnimation.Visibility = Visibility.Collapsed;
         }
 
         private void MenuItem_LoadTechnoCard(object sender, RoutedEventArgs e)
@@ -37,21 +38,28 @@ namespace DoorProj
             open.Filter = "Excel file (*.xls; *.xlsx)|*.xls; *.xlsx";
             if (open.ShowDialog() == true)
             {
+                Table.ItemsSource = null;
+                LoadingAnimation.Visibility = Visibility.Visible;
                 new Thread(new ThreadStart(() =>
                 {
                     technologicalCard = new ExcelParser(open.FileName).ParseTechnoCard();
-
                     if (technologicalCard != null)
                     {
                         Table.Dispatcher.Invoke(() => { Table.ItemsSource = technologicalCard.Blocks; });
                     }
                     else
                     {
-                        
+                        MessageBox.Show("Не вдалось завантажити технологічну карту", "Помилка");
                     }
+                    LoadingAnimation.Dispatcher.Invoke(() => { LoadingAnimation.Visibility = Visibility.Collapsed; });
                 })).Start();
-
             }
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+
+            ExcelParser.KillProccess();
         }
     }
 }
