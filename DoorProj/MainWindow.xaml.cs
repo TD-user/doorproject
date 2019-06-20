@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using Entities;
 using ExcelParserLibrary;
 using System.Threading;
+using Block = Entities.Block;
 
 namespace DoorProj
 {
@@ -30,8 +31,10 @@ namespace DoorProj
         {
             InitializeComponent();
             LoadingAnimation.Visibility = Visibility.Collapsed;
+            LoadingAnimationTree.Visibility = Visibility.Collapsed;
         }
 
+        //завантаження технологічної карти
         private void MenuItem_LoadTechnoCard(object sender, RoutedEventArgs e)
         {
             OpenFileDialog open = new OpenFileDialog();
@@ -57,6 +60,25 @@ namespace DoorProj
             }
         }
 
+        //виділення рядка 
+        private void TableRow_Selected(object sender, RoutedEventArgs e)
+        {
+            LoadingAnimationTree.Visibility = Visibility.Visible;
+            try
+            {
+                var a = sender as DataGrid;
+                Block block = a.SelectedItem as Block;
+
+                //todo: створення дерева елементів
+            }
+            catch
+            {
+
+            }
+            LoadingAnimationTree.Visibility = Visibility.Collapsed;
+        }
+
+        //закриття програми, бажано вбивати excel, можливо поставити перевірку на підтвердження закриття, щоб випадково не обірвали процеси
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
 
