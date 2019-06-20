@@ -108,6 +108,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DbDataProvider\DbDataProvider.csproj">
+      <Project>{014accf0-381b-4c32-95f0-857d577cd057}</Project>
+      <Name>DbDataProvider</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EntitiesDB\EntitiesDB.csproj">
+      <Project>{dc560ffc-dc73-4440-ac50-043d8ba5fc10}</Project>
+      <Name>EntitiesDB</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Entities\Entities.csproj">
       <Project>{40942a2c-b673-4ee5-8c57-fbe728ff5469}</Project>
       <Name>Entities</Name>

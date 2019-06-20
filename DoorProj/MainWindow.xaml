@@ -9,9 +9,9 @@
         WindowState="Maximized"
         Title="DoorCAM" Height="450" Width="800"
         Closing="Window_Closing">
-    <Window.Resources>
-        <helpers:TableRowConverter x:Key="tableRowConverter"/>
-    </Window.Resources>
+	<Window.Resources>
+		<helpers:TableRowConverter x:Key="tableRowConverter"/>
+	</Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>

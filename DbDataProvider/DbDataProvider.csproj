@@ -47,8 +47,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BlockProvider.cs" />
     <Compile Include="DataContext.cs" />
+    <Compile Include="DoorBoxProvider.cs" />
+    <Compile Include="DoorProvider.cs" />
+    <Compile Include="DoorStepProvider.cs" />
+    <Compile Include="HingeProvider.cs" />
+    <Compile Include="LockProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TechnologicalCardProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EntitiesDB\EntitiesDB.csproj">

@@ -16,6 +16,9 @@ using System.Windows.Shapes;
 using Entities;
 using ExcelParserLibrary;
 using System.Threading;
+using DBDataProvider;
+using EntitiesDB;
+using DbDataProvider;
 
 namespace DoorProj
 {
@@ -25,7 +28,6 @@ namespace DoorProj
     public partial class MainWindow : Window
     {
         TechnologicalCard technologicalCard = null;
-
         public MainWindow()
         {
             InitializeComponent();
