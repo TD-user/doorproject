@@ -27,11 +27,28 @@ namespace DoorProj
     /// </summary>
     public partial class MainWindow : Window
     {
-        TechnologicalCard technologicalCard = null;
+        Entities.TechnologicalCard technologicalCard = null;
         public MainWindow()
         {
             InitializeComponent();
             LoadingAnimation.Visibility = Visibility.Collapsed;
+            try
+            {
+                //new DoorProvider().AddDoor(new Door() { Name = "New Test Door" });
+                /*new DoorBoxProvider().AddDoorBox(new DoorBox() { Name = "New Test DoorBox" });
+                new DoorStepProvider().AddDoorStep(new DoorStep() { Name = "New Test DoorStep" });
+                new HingeProvider().AddHinge(new Hinge() { Name = "New Test Hinge" });
+                new LockProvider().AddLock(new Lock() { Name = "New Test Lock" });*/
+                 new TechnologicalCardProvider().AddTC(new EntitiesDB.TechnologicalCard() { TechCardNumber = "TEst",
+                     Responsible = "Test Person", ResponsibleForPrint = "Test Person" });
+                //MessageBox.Show(new TechnologicalCardProvider().GetTcByID(1)?.Blocks.Count.ToString()??"NoCard");
+                //MessageBox.Show("Everything good");
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+                MessageBox.Show(e.StackTrace);
+            }
         }
 
         private void MenuItem_LoadTechnoCard(object sender, RoutedEventArgs e)

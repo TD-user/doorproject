@@ -1,14 +1,10 @@
 ﻿using DBDataProvider;
 using EntitiesDB;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DbDataProvider
 {
-    class DoorBoxProvider
+    public class DoorBoxProvider
     {
         private readonly DataContext dataContext;
 
@@ -29,19 +25,19 @@ namespace DbDataProvider
             return doorBox != null ? doorBox : null;
         }
 
-        public void AddDoor(DoorBox doorBox)
+        public void AddDoorBox(DoorBox doorBox)
         {
             dataContext.DoorBoxes.Add(doorBox);
             dataContext.SaveChanges();
         }
 
-        public void AddDoors(params DoorBox[] doorBox)
+        public void AddDoorBoxes(params DoorBox[] doorBox)
         {
             dataContext.DoorBoxes.AddRange(doorBox);
             dataContext.SaveChangesAsync();
         }
 
-        public void UpdateDoor(DoorBox doorBox)
+        public void UpdateDoorBox(DoorBox doorBox)
         {
             DoorBox doorBoxOld = dataContext.DoorBoxes.FirstOrDefault(d => d.Name == doorBox.Name);
             if (doorBoxOld != null)
@@ -61,7 +57,7 @@ namespace DbDataProvider
             }
         }
 
-        public void DeleteDoorByName(string Name)
+        public void DeleteDoorBoxByName(string Name)
         {
             DoorBox doorBoxOld = dataContext.DoorBoxes.FirstOrDefault(d => d.Name == Name);
             if (doorBoxOld != null)
