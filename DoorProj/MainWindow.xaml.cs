@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using Entities;
 using ExcelParserLibrary;
 using System.Threading;
+using Block = Entities.Block;
 
 namespace DoorProj
 {

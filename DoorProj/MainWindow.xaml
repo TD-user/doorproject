@@ -39,7 +39,6 @@
                         x:Name="treeView">
                         
                     </TreeView>
-                    
                     <Image 
                         x:Name="LoadingAnimationTree"
                         Source="Images/loading.png" 
@@ -153,7 +152,16 @@
                     Height="3"
                     VerticalAlignment="Center" 
                     HorizontalAlignment="Stretch"/>
-
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel>
+                        <Button />
+                    </StackPanel>
+                </Grid>
             </Grid>
         </Grid>
     </Grid>
