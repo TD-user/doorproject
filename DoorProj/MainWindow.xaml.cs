@@ -16,9 +16,6 @@ using System.Windows.Shapes;
 using Entities;
 using ExcelParserLibrary;
 using System.Threading;
-using DBDataProvider;
-using EntitiesDB;
-using DbDataProvider;
 
 namespace DoorProj
 {
@@ -32,25 +29,9 @@ namespace DoorProj
         {
             InitializeComponent();
             LoadingAnimation.Visibility = Visibility.Collapsed;
-            try
-            {
-                //new DoorProvider().AddDoor(new Door() { Name = "New Test Door" });
-                /*new DoorBoxProvider().AddDoorBox(new DoorBox() { Name = "New Test DoorBox" });
-                new DoorStepProvider().AddDoorStep(new DoorStep() { Name = "New Test DoorStep" });
-                new HingeProvider().AddHinge(new Hinge() { Name = "New Test Hinge" });
-                new LockProvider().AddLock(new Lock() { Name = "New Test Lock" });*/
-                 new TechnologicalCardProvider().AddTC(new EntitiesDB.TechnologicalCard() { TechCardNumber = "TEst",
-                     Responsible = "Test Person", ResponsibleForPrint = "Test Person" });
-                //MessageBox.Show(new TechnologicalCardProvider().GetTcByID(1)?.Blocks.Count.ToString()??"NoCard");
-                //MessageBox.Show("Everything good");
-            }
-            catch(Exception e)
-            {
-                MessageBox.Show(e.Message);
-                MessageBox.Show(e.StackTrace);
-            }
         }
 
+        //завантаження технологічної карти
         private void MenuItem_LoadTechnoCard(object sender, RoutedEventArgs e)
         {
             OpenFileDialog open = new OpenFileDialog();
@@ -76,6 +57,25 @@ namespace DoorProj
             }
         }
 
+        //виділення рядка 
+        private void TableRow_Selected(object sender, RoutedEventArgs e)
+        {
+            LoadingAnimationTree.Visibility = Visibility.Visible;
+            try
+            {
+                var a = sender as DataGrid;
+                Block block = a.SelectedItem as Block;
+                
+                //todo: створення дерева елементів
+            }
+            catch
+            {
+
+            }
+            LoadingAnimationTree.Visibility = Visibility.Collapsed;
+        }
+
+        //закриття програми, бажано вбивати excel, можливо поставити перевірку на підтвердження закриття, щоб випадково не обірвали процеси
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
 
