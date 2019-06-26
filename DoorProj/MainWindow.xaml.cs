@@ -16,7 +16,6 @@ using System.Windows.Shapes;
 using Entities;
 using ExcelParserLibrary;
 using System.Threading;
-using Block = Entities.Block;
 
 namespace DoorProj
 {
@@ -25,13 +24,11 @@ namespace DoorProj
     /// </summary>
     public partial class MainWindow : Window
     {
-        TechnologicalCard technologicalCard = null;
-
+        Entities.TechnologicalCard technologicalCard = null;
         public MainWindow()
         {
             InitializeComponent();
             LoadingAnimation.Visibility = Visibility.Collapsed;
-            LoadingAnimationTree.Visibility = Visibility.Collapsed;
         }
 
         //завантаження технологічної карти
