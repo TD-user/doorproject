@@ -137,6 +137,59 @@ namespace ExcelParserLibrary
             return technologicalCard;
         }
 
+        public List<string> ParseToDataBase()
+        {
+            if (String.IsNullOrEmpty(this.FilePath)) return null;
+
+            List<string> list = new List<string>();
+            Excel.Application xlApp = null;
+            Excel.Workbook xlWorkbook = null;
+            Excel._Worksheet xlWorksheet = null;
+            Excel.Range xlRange = null;
+            try
+            {
+                xlApp = new Excel.Application();
+                xlWorkbook = xlApp.Workbooks.Open(this.FilePath);
+                xlWorksheet = xlWorkbook.Sheets[1];
+                xlRange = xlWorksheet.UsedRange;
+
+                int rowCount = xlRange.Rows.Count;
+                int colCount = xlRange.Columns.Count;
+
+                for (int i = 2; i <= rowCount; i++)
+                {
+                    string str = "";
+                    for (int j = 1; j <= colCount; j++)
+                    {
+                        if (validateCell(xlRange, i, j))
+                            str += xlRange.Cells[i, j].Value.ToString();
+                        else
+                            str += "";
+                        if (j < colCount)
+                            str += "|";
+                    }
+                    list.Add(str);
+                }
+            }
+            catch
+            {
+                list = null;
+            }
+            finally
+            {
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                Marshal.ReleaseComObject(xlRange);
+                Marshal.ReleaseComObject(xlWorksheet);
+                xlWorkbook.Close();
+                Marshal.ReleaseComObject(xlWorkbook);
+                xlApp.Quit();
+                Marshal.ReleaseComObject(xlApp);
+                ExcelParser.KillProccess();
+            }
+            return list;
+        }
+
         public static void KillProccess()
         {
             foreach (Process process in Process.GetProcesses())
