@@ -35,7 +35,10 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0">
-                    
+                    <TreeView 
+                        x:Name="treeView">
+                        
+                    </TreeView>
                     
                     <Image 
                         x:Name="LoadingAnimationTree"
@@ -91,6 +94,7 @@
                         CanUserDeleteRows="False"
                         CanUserSortColumns="False"
                         IsReadOnly="True"
+                        AutoGenerateColumns="False"
                         x:Name="Table"
                         DataGridCell.Selected="TableRow_Selected">
                         <DataGrid.RowStyle>
@@ -102,6 +106,22 @@
                                 </Setter>
                             </Style>
                         </DataGrid.RowStyle>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Блок" Binding="{Binding BlockId}"/>
+                            <DataGridTextColumn Header="Врізки" Binding="{Binding CuttingType}"/>
+                            <DataGridTextColumn Header="ДОП" Binding="{Binding AdditionalInfo}"/>
+                            <DataGridTextColumn Header="Найменування полотна 1" Binding="{Binding Door1}"/>
+                            <DataGridTextColumn Header="Найменування полотна 2" Binding="{Binding Door2}"/>
+                            <DataGridTextColumn Header="Коробка" Binding="{Binding DoorBox}"/>
+                            <DataGridTextColumn Header="Завіси 1" Binding="{Binding Hinge1}"/>
+                            <DataGridTextColumn Header="Завіси 2" Binding="{Binding Hinge2}"/>
+                            <DataGridTextColumn Header="К-ть завіс" Binding="{Binding HingeCount}"/>
+                            <DataGridTextColumn Header="Замок" Binding="{Binding LockType}"/>
+                            <DataGridTextColumn Header="Врізка потаю відповідної планки" Binding="{Binding InsertingSecret}"/>
+                            <DataGridTextColumn Header="Поріг" Binding="{Binding DoorStep}"/>
+                            <DataGridTextColumn Header="Примітка" Binding="{Binding Note}"/>
+                            <DataGridTextColumn Header="Номер замовлення" Binding="{Binding OrderNumber}"/>
+                        </DataGrid.Columns>
                     </DataGrid>
                     <Image 
                         x:Name="LoadingAnimation"

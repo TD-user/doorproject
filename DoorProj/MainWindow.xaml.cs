@@ -68,7 +68,7 @@ namespace DoorProj
             {
                 var a = sender as DataGrid;
                 Block block = a.SelectedItem as Block;
-
+                
                 //todo: створення дерева елементів
             }
             catch
