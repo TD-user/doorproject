@@ -19,14 +19,52 @@ namespace DbDataProvider
         public void AddTC(TechnologicalCard TC)
         {
             dataContext.TechonologicalCards.Add(TC);
-            dataContext.SaveChanges();
+            dataContext.SaveChangesAsync();
         }
 
         public TechnologicalCard GetTcByID(int ID)
         {
-            TechnologicalCard technologicalCard = dataContext.TechonologicalCards.FirstOrDefault(tc => tc.ID == ID);
+            TechnologicalCard technologicalCard = dataContext.TechonologicalCards.Include(tc => tc.Blocks).FirstOrDefault(tc => tc.ID == ID);
             return technologicalCard != null ? technologicalCard : null;
-            //return dataContext.TechonologicalCards.Include(tc => tc.Blocks).ToArray();
+        }
+
+        public TechnologicalCard GetTcByCardNumber(string CardNumber)
+        {
+            TechnologicalCard technologicalCard = dataContext.TechonologicalCards.Include(tc => tc.Blocks).FirstOrDefault(tc => tc.TechCardNumber == CardNumber);
+            return technologicalCard != null ? technologicalCard : null;
+        }
+
+        public void DeleteTcByID(int ID)
+        {
+            TechnologicalCard technologicalCard = dataContext.TechonologicalCards.FirstOrDefault(tc => tc.ID == ID);
+            if (technologicalCard != null)
+            {
+                dataContext.TechonologicalCards.Remove(technologicalCard);
+                dataContext.SaveChanges();
+            }
+        }
+
+        public void DeleteTcByID(string CardNumber)
+        {
+            TechnologicalCard technologicalCard = dataContext.TechonologicalCards.FirstOrDefault(tc => tc.TechCardNumber == CardNumber);
+            if (technologicalCard != null)
+            {
+                dataContext.TechonologicalCards.Remove(technologicalCard);
+                dataContext.SaveChanges();
+            }
+        }
+
+        public void UpdateTcByID(TechnologicalCard card)
+        {
+            TechnologicalCard technologicalCard = dataContext.TechonologicalCards.FirstOrDefault(tc => tc.ID == card.ID || tc.TechCardNumber == card.TechCardNumber);
+            if (technologicalCard != null)
+            {
+                technologicalCard.TechCardNumber = card.TechCardNumber;
+                technologicalCard.Responsible = card.Responsible;
+                technologicalCard.ResponsibleForPrint = card.ResponsibleForPrint;
+                technologicalCard.DateUpdated = DateTime.UtcNow;
+                dataContext.SaveChanges();
+            }
         }
     }
 }

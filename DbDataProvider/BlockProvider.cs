@@ -1,4 +1,5 @@
 ﻿using DBDataProvider;
+using EntitiesDB;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,12 @@ namespace DbDataProvider
         public BlockProvider()
         {
             dataContext = new DataContext();
+        }
+
+        public void AddBlock(Block block)
+        {
+            dataContext.Blocks.Add(block);
+            dataContext.SaveChanges();
         }
     }
 }

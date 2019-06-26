@@ -30,7 +30,7 @@ namespace EntitiesDB
         [ForeignKey("TechCard")]
         public int TechCardID { get; set; }
         public TechnologicalCard TechCard { get; set; }
-        public int Status { get; set; }
+        public byte Status { get; set; }
 
         public Block() { }
     }
