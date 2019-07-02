@@ -27,12 +27,5 @@
         public bool EnableOP2 { get; set; }
         public bool EnableOP3 { get; set; }
         public bool EnableOP4 { get; set; }
-        public Lock(){}
-
-        public Lock(int iD, string name)
-        {
-            ID = iD;
-            Name = name;
-        }
     }
 }

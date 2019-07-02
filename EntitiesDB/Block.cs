@@ -31,7 +31,5 @@ namespace EntitiesDB
         public int TechCardID { get; set; }
         public TechnologicalCard TechCard { get; set; }
         public byte Status { get; set; }
-
-        public Block() { }
     }
 }
