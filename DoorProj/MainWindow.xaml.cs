@@ -26,10 +26,12 @@ namespace DoorProj
     public partial class MainWindow : Window
     {
         Entities.TechnologicalCard technologicalCard = null;
+        Block currentBlock = null;
         public MainWindow()
         {
             InitializeComponent();
             LoadingAnimation.Visibility = Visibility.Collapsed;
+            LoadingAnimationTree.Visibility = Visibility.Collapsed;
         }
 
         //завантаження технологічної карти
@@ -65,22 +67,31 @@ namespace DoorProj
             try
             {
                 var a = sender as DataGrid;
-                Block block = a.SelectedItem as Block;
+                currentBlock = a.SelectedItem as Block;
+                
                 
                 //todo: створення дерева елементів
             }
             catch
             {
-
+                currentBlock = null;
             }
             LoadingAnimationTree.Visibility = Visibility.Collapsed;
+        }
+
+        private void StartCuttingButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (currentBlock != null)
+            {
+                currentBlock.Status = Status.Done;
+            }
         }
 
         //закриття програми, бажано вбивати excel, можливо поставити перевірку на підтвердження закриття, щоб випадково не обірвали процеси
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-
             ExcelParser.KillProccess();
         }
+
     }
 }

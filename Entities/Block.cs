@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Entities
 {
-    public class Block
+    public class Block : INotifyPropertyChanged
     {
         public string BlockId { get; set; } //номер блоку
         public string CuttingType { get; set; } //врізки
@@ -22,7 +23,25 @@ namespace Entities
         public string DoorStep { get; set; } //поріг
         public string Note { get; set; } //примітка
         public string OrderNumber { get; set; } //номер замовлення
-        public Status Status { get; set; } = Status.Preparation;
 
+        private Status status;
+        public Status Status {
+            get
+            {
+                return status;
+            }
+            set
+            {
+                status = value;
+                OnPropertyChanged("Status");
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void OnPropertyChanged(String name = " ")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
     }
 }
